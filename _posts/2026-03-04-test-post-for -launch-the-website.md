@@ -16,4 +16,4 @@ I am currently on the second floor mountainside of the library. Great sunshine t
 
 
 
-* Good luck :)
+-Good luck.
