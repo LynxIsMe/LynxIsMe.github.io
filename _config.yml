@@ -15,25 +15,32 @@ github_username:  LynsIsMe
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+# Top nav (Minima automatically uses this)
+header_pages:
+  - index.md
+  - blog.md
+  - notes.md
+  - tags.md
+  - physics.md
+  - software.md
+  - hardware.md
+
+# Notes as a separate collection (not mixed into blog posts)
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: note
