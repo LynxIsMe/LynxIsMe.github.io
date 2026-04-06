@@ -14,35 +14,7 @@ The incident emphasizes the importance of external, filesystem-independent backu
 ---
 
 ## Table of Contents
-
-- [Abstract](#abstract)
-- [Windows Boot Failure Incident Record](#incident)
-  - [I. Event Overview (Summary)](#section-1)
-  - [II. Initial Symptoms (Observed Symptoms)](#section-2)
-  - [III. Investigation Process](#section-3)
-    - [1. BitLocker Layer Verification](#section-3-1)
-    - [2. Partition and Filesystem Inspection (DiskPart)](#section-3-2)
-    - [3. EFI / Bootloader Inspection](#section-3-3)
-    - [4. BCD (Boot Configuration) Verification](#section-3-4)
-  - [IV. Root Cause Analysis](#section-4)
-    - [Root Cause](#section-4-1)
-    - [Impact of BitLocker](#section-4-2)
-  - [V. What Was NOT Broken](#section-5)
-  - [VI. Conclusion](#section-6)
-  - [VII. Final Resolution](#section-7)
-  - [VIII. Lessons Learned](#section-8)
-  - [IX. Personal Note](#section-9)
-- [Additional Section: Designing Backup Strategies to Avoid Similar Incidents](#backup-section)
-  - [I. The Core Risk Revealed by This Incident](#backup-1)
-  - [II. Three Principles for Backup Strategy Design](#backup-2)
-    - [Principle 1 — Backups must be independent of the main filesystem](#backup-2-1)
-    - [Principle 2 — At least one backup must be non-live mounted](#backup-2-2)
-    - [Principle 3 — Data and system must be logically separated](#backup-2-3)
-  - [III. Recommended Low-Cost but Robust Solution](#backup-3)
-    - [Minimal viable solution (students / personal users)](#backup-3-1)
-    - [Engineer-level personal solution (strongly recommended)](#backup-3-2)
-  - [IV. The Design Lesson Learned from This Incident](#backup-4)
-
+{:toc}
 ---
 
 # 📝 Windows Boot Failure Incident Record (BitLocker / NTFS / BCD)
