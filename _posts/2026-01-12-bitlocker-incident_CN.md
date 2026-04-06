@@ -1,4 +1,4 @@
-\## Abstract
+## Abstract
 
 <a id="abstract"></a>
 
@@ -56,25 +56,25 @@ technologies such as BitLocker.
 
 
 
-\---
+---
 
 
 
-\# 目录
+## 目录
 
 {:toc}
 
-\---
+---
 
 
 
-\# 📝 Windows 启动失败事故记录（BitLocker / NTFS / BCD）
+# 📝 Windows 启动失败事故记录（BitLocker / NTFS / BCD）
 
 <a id="incident"></a>
 
 
 
-\## 一、事件概述（Summary）
+## 一、事件概述（Summary）
 
 <a id="section1"></a>
 
@@ -84,7 +84,7 @@ technologies such as BitLocker.
 
 输入正确的恢复密钥后无法进入 Windows 系统，而是反复回到
 
-\*\*Windows Recovery Environment（WinRE）\*\*。
+**Windows Recovery Environment（WinRE）**。
 
 
 
@@ -92,61 +92,61 @@ technologies such as BitLocker.
 
 
 
-\---
+---
 
 
 
-\## 二、初始症状（Observed Symptoms）
+## 二、初始症状（Observed Symptoms）
 
 <a id="section2"></a>
 
 
 
-\- 开机直接进入 \*\*BitLocker Recovery\*\*
+- 开机直接进入 **BitLocker Recovery**
 
-\- 输入正确的 BitLocker 恢复密钥后：
+- 输入正确的 BitLocker 恢复密钥后：
 
 &#x20; - 有时可进入 WinRE
 
 &#x20; - 无法进入 Windows 桌面
 
-\- 启动修复（Startup Repair）失败
+- 启动修复（Startup Repair）失败
 
-\- “重置此电脑（保留我的文件）”失败
+- “重置此电脑（保留我的文件）”失败
 
-\- 系统陷入 \*\*BitLocker → WinRE → BitLocker\*\* 循环
-
-
-
-\---
+- 系统陷入 **BitLocker → WinRE → BitLocker** 循环
 
 
 
-\## 三、诊断过程（Investigation）
+---
+
+
+
+## 三、诊断过程（Investigation）
 
 <a id="section3"></a>
 
 
 
-\### 1. BitLocker 层验证
+### 1. BitLocker 层验证
 
 <a id="section31"></a>
 
 
 
-\- 成功使用正确的恢复密钥解锁磁盘
+- 成功使用正确的恢复密钥解锁磁盘
 
-\- BitLocker 本身 \*\*工作正常\*\*
+- BitLocker 本身 **工作正常**
 
-\- 密钥、TPM、加密层未损坏
-
-
-
-\---
+- 密钥、TPM、加密层未损坏
 
 
 
-\### 2. 分区与文件系统检查（DiskPart）
+---
+
+
+
+### 2. 分区与文件系统检查（DiskPart）
 
 <a id="section32"></a>
 
@@ -160,11 +160,11 @@ technologies such as BitLocker.
 
 
 
-\- EFI 系统分区（FAT32）正常
+- EFI 系统分区（FAT32）正常
 
-\- Windows RE 分区（NTFS）正常
+- Windows RE 分区（NTFS）正常
 
-\- \*\*主系统分区 C: 文件系统显示 Unknown\*\*
+- **主系统分区 C: 文件系统显示 Unknown**
 
 
 
@@ -176,11 +176,11 @@ technologies such as BitLocker.
 
 
 
-\---
+---
 
 
 
-\### 3. EFI / 启动器检查
+### 3. EFI / 启动器检查
 
 <a id="section33"></a>
 
@@ -194,11 +194,11 @@ technologies such as BitLocker.
 
 
 
-\- bootmgfw.efi
+- bootmgfw.efi
 
-\- bootmgr.efi
+- bootmgr.efi
 
-\- BCD
+- BCD
 
 
 
@@ -206,19 +206,19 @@ technologies such as BitLocker.
 
 
 
-\- UEFI 正常
+- UEFI 正常
 
-\- EFI 分区正常
+- EFI 分区正常
 
-\- Boot Manager 正常
-
-
-
-\---
+- Boot Manager 正常
 
 
 
-\### 4. BCD 启动配置验证
+---
+
+
+
+### 4. BCD 启动配置验证
 
 <a id="section34"></a>
 
@@ -230,11 +230,11 @@ technologies such as BitLocker.
 
 
 
-\- Windows 启动项存在
+- Windows 启动项存在
 
-\- 启动目标为 C:
+- 启动目标为 C:
 
-\- 启动路径为 `\\Windows\\System32\\winload.efi`
+- 启动路径为 `\\Windows\\System32\\winload.efi`
 
 
 
@@ -246,7 +246,7 @@ technologies such as BitLocker.
 
 
 
-\---
+---
 
 
 
@@ -256,7 +256,7 @@ technologies such as BitLocker.
 
 
 
-\*\*根本原因\*\*
+**根本原因**
 
 
 
@@ -270,19 +270,19 @@ technologies such as BitLocker.
 
 
 
-\- Windows 无法解析文件系统
+- Windows 无法解析文件系统
 
-\- BitLocker 解锁后仍无法读取系统
+- BitLocker 解锁后仍无法读取系统
 
-\- Bootloader 在读取阶段失败
-
-
-
-\---
+- Bootloader 在读取阶段失败
 
 
 
-\## 五、排除项
+---
+
+
+
+## 五、排除项
 
 <a id="section5"></a>
 
@@ -292,25 +292,25 @@ technologies such as BitLocker.
 
 
 
-\- BIOS / UEFI
+- BIOS / UEFI
 
-\- Secure Boot
+- Secure Boot
 
-\- BitLocker
+- BitLocker
 
-\- EFI 分区
+- EFI 分区
 
-\- BCD
+- BCD
 
-\- Boot 文件
-
-
-
-\---
+- Boot 文件
 
 
 
-\## 六、结论
+---
+
+
+
+## 六、结论
 
 <a id="section6"></a>
 
@@ -318,7 +318,7 @@ technologies such as BitLocker.
 
 系统层级 | 状态
 
-\---|---
+---|---
 
 硬件 | 正常
 
@@ -334,55 +334,55 @@ NTFS | ❌ 损坏
 
 由于 NTFS 无法解析  
 
-\*\*不存在安全的软件级修复方案\*\*
+**不存在安全的软件级修复方案**
 
 
 
-\---
+---
 
 
 
-\## 七、最终处理方案
+## 七、最终处理方案
 
 <a id="section7"></a>
 
 
 
-\- 数据无法备份
+- 数据无法备份
 
-\- 执行 \*\*全新安装 Windows\*\*
+- 执行 **全新安装 Windows**
 
-\- 删除全部分区
+- 删除全部分区
 
-\- 重新初始化磁盘
-
-
-
-\---
+- 重新初始化磁盘
 
 
 
-\## 八、经验与教训
+---
+
+
+
+## 八、经验与教训
 
 <a id="section8"></a>
 
 
 
-1\. BCD 正常 ≠ 系统可启动
+1. BCD 正常 ≠ 系统可启动
 
-2\. BitLocker + NTFS 损坏 = 零容错
+2. BitLocker + NTFS 损坏 = 零容错
 
-3\. 文件系统损坏可导致系统完全失效
+3. 文件系统损坏可导致系统完全失效
 
-4\. \*\*离线备份极其重要\*\*
-
-
-
-\---
+4. **离线备份极其重要**
 
 
 
-\## 九、附注
+---
+
+
+
+## 九、附注
 
 <a id="section9"></a>
 
@@ -392,7 +392,7 @@ Windows 启动链中：
 
 
 
-\*\*逻辑层（BCD / Bootloader）与数据层（Filesystem）是解耦的\*\*
+**逻辑层（BCD / Bootloader）与数据层（Filesystem）是解耦的**
 
 
 
@@ -400,15 +400,15 @@ Windows 启动链中：
 
 
 
-> \*\*一旦数据层失效，逻辑层无法挽救系统\*\*
+> **一旦数据层失效，逻辑层无法挽救系统**
 
 
 
-\---
+---
 
 
 
-\# 🛡️ 附加章节：如何设计备份策略
+# 🛡️ 附加章节：如何设计备份策略
 
 <a id="backup"></a>
 
@@ -424,15 +424,15 @@ Windows 启动链中：
 
 
 
-\---
+---
 
 
 
-\## 核心原则
+## 核心原则
 
 
 
-\### 1. 备份必须独立于主文件系统
+### 1. 备份必须独立于主文件系统
 
 
 
@@ -440,19 +440,19 @@ Windows 启动链中：
 
 
 
-\- 外置硬盘
+- 外置硬盘
 
-\- NAS
+- NAS
 
-\- 云存储
-
-
-
-\---
+- 云存储
 
 
 
-\### 2. 至少一份备份必须是冷备份
+---
+
+
+
+### 2. 至少一份备份必须是冷备份
 
 
 
@@ -460,17 +460,17 @@ Windows 启动链中：
 
 
 
-\- 误删
+- 误删
 
-\- 数据损坏
-
-
-
-\---
+- 数据损坏
 
 
 
-\### 3. 数据与系统分离
+---
+
+
+
+### 3. 数据与系统分离
 
 
 
@@ -482,11 +482,11 @@ Windows 启动链中：
 
 
 
-\---
+---
 
 
 
-\## 推荐方案
+## 推荐方案
 
 
 
@@ -494,11 +494,11 @@ Windows 启动链中：
 
 
 
-\- BitLocker
+- BitLocker
 
-\- 外置 SSD 备份
+- 外置 SSD 备份
 
-\- 云同步
+- 云同步
 
 
 
@@ -506,31 +506,31 @@ Windows 启动链中：
 
 
 
-\- SSD 冷备
+- SSD 冷备
 
-\- 月度完整镜像
+- 月度完整镜像
 
-\- 云同步
-
-
-
-\---
+- 云同步
 
 
 
-\## 设计结论
+---
 
 
 
-\*\*BitLocker 提供的是安全性，不是可恢复性。\*\*
+## 设计结论
 
 
 
-当系统选择 \*\*绝不猜测\*\*
+**BitLocker 提供的是安全性，不是可恢复性。**
 
 
 
-你必须准备 \*\*绝对失败的备份方案\*\*。
+当系统选择 **绝不猜测**
+
+
+
+你必须准备 **绝对失败的备份方案**。
 
 
 
