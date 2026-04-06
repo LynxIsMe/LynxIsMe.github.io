@@ -12,10 +12,12 @@ Hi, I’m Lynx, a physics student @ UCSB. Hope you find something helpful with t
 
 Release: 
 
-v 0.0.2
-set up homepage and navigate bar. testing post.
-some change with homepage
-update coming soon :P
+v 0.0.3 
+- Upgrade format for articles
+- Add clickable table of content for each article
+- hope to have one functional upgrade per month :)
+
+
 
 
 

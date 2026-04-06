@@ -1,6 +1,6 @@
 title: Lynx :)
 description: Physics @ UCSB
-version: 0.0.2
+version: 0.0.3
 
 theme: minima
 
@@ -20,8 +20,8 @@ github_username:  LynsIsMe
 # Build settings
 theme: minima
 
+# for table of content
 markdown: kramdown
-
 kramdown:
   input: GFM
 
