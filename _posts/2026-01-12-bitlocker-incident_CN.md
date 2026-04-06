@@ -62,41 +62,7 @@ technologies such as BitLocker.
 
 \# 目录
 
-
-
-\- \[摘要](#abstract)
-
-\- \[Windows 启动失败事故记录](#incident)
-
-&#x20; - \[一、事件概述](#section1)
-
-&#x20; - \[二、初始症状](#section2)
-
-&#x20; - \[三、诊断过程](#section3)
-
-&#x20;   - \[BitLocker 层验证](#section31)
-
-&#x20;   - \[分区与文件系统检查](#section32)
-
-&#x20;   - \[EFI / 启动器检查](#section33)
-
-&#x20;   - \[BCD 启动配置验证](#section34)
-
-&#x20; - \[四、根本原因分析](#section4)
-
-&#x20; - \[五、排除项](#section5)
-
-&#x20; - \[六、结论](#section6)
-
-&#x20; - \[七、最终处理方案](#section7)
-
-&#x20; - \[八、经验与教训](#section8)
-
-&#x20; - \[九、附注](#section9)
-
-\- \[附加章节：备份策略设计](#backup)
-
-
+{:toc}
 
 \---
 
