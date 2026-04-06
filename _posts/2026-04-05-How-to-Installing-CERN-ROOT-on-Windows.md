@@ -1,8 +1,6 @@
-# Installing CERN ROOT (Windows Guide)
-
 ## Overview
 
-CERN ROOT is a data analysis framework widely used in particle physics and high-energy physics experiments. Installing ROOT on Windows can sometimes be confusing for beginners, so this guide summarizes two working installation methods.
+CERN ROOT is a data analysis framework widely used in particle physics and high-energy physics experiments. Installing ROOT on Windows can sometimes be confusing for beginners(I spent hours to download and install it for my first time), so this guide summarizes two working installation methods to make it easier:
 
 1. **Precompiled Windows Binary (recommended for beginners)**
 2. **Conda Installation (recommended for scientific Python workflows)**
@@ -28,7 +26,7 @@ Both methods are explained below.
 
 # Method 1 — Install Using the Official Windows Binary
 
-*(Recommended for beginners)*
+*(Recommended for beginners, I personally use this)*
 
 ## 1. Download ROOT
 
