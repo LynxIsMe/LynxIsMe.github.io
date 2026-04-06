@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Windows Boot Failure Incident Record (BitLocker / NTFS / BCD)"
+date: 2026-01-12
+---
+
 ## Abstract
 <a id="abstract"></a>
 
