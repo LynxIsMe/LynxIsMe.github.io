@@ -19,6 +19,8 @@ The incident emphasizes the importance of external, filesystem-independent backu
 ---
 
 ## 目录
+
+* TOC
 {:toc}
 
 # 📝 Windows 启动失败事故记录（BitLocker / NTFS / BCD）
