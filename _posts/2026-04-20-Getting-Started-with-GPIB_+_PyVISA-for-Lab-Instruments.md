@@ -9,7 +9,7 @@ tags: [GPIB, PyVISA, instrumentation, python]
 * TOC
 {:toc}
 
-# Getting Started with GPIB + PyVISA for Lab Instruments
+# Intro
 
 I knew nothing about GPIB or PyVISA last month, but sometimes the task forces you to learn — so here we are.
 
