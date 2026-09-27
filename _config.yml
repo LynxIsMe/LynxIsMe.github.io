@@ -1,54 +1,38 @@
 title: Lynx :)
 description: Physics @ UCSB
-version: 0.0.3
-
-theme: minima
-
+url: "https://lynxxu.link"
+version: 0.0.4
 plugins:
   - jekyll-feed
-
-header_pages:
-  - index.md
-  - blog.md
-  - physics.md
-  - software.md
-  - hardware.md
-
 email: lynxxu@ucsb.edu
-github_username:  LynsIsMe
-
-# Build settings
-theme: minima
-
-# for table of content
 markdown: kramdown
 kramdown:
   input: GFM
-
-# Top nav (Minima automatically uses this)
-header_pages:
-  - index.md
-  - blog.md
-  - notes.md
-  - tags.md
-  - physics.md
-  - software.md
-  - hardware.md
-
-# Notes as a separate collection (not mixed into blog posts)
 collections:
   notes:
     output: true
     permalink: /notes/:name/
-
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
       layout: post
   - scope:
       path: ""
-      type: "notes"
+      type: notes
     values:
       layout: note
+  - scope:
+      path: "_posts/2026-03-04-test-post-for -launch-the-website.md"
+      type: posts
+    values:
+      section: notes
+exclude:
+  - index.markdown
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - "laptop issue memo.docx"
+  - ".idea"
+github_username: LynsIsMe

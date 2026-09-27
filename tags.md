@@ -1,54 +1,11 @@
 ---
-
 layout: page
-
 title: Tags
-
+description: Find a thread and follow it.
 permalink: /tags/
-
 ---
-
-
-
-{% assign tags\_sorted = site.tags | sort %}
-
-{% for tag in tags\_sorted %}
-
-&nbsp; {% assign tag\_name = tag\[0] %}
-
-\- \[{{ tag\_name }}](#{{ tag\_name | slugify }})
-
+{% assign tags_sorted = site.tags | sort %}
+<div class="topic-tabs">{% for tag in tags_sorted %}<a href="#{{ tag[0] | slugify }}">{{ tag[0] | escape }} <span>({{ tag[1].size }})</span></a>{% endfor %}</div>
+{% for tag in tags_sorted %}
+<section class="tag-section"><h2 id="{{ tag[0] | slugify }}">{{ tag[0] | escape }}</h2><ul class="simple-list">{% for post in tag[1] %}<li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a><time>{{ post.date | date: "%b %d, %Y" }}</time></li>{% endfor %}</ul></section>
 {% endfor %}
-
-
-
-<hr>
-
-
-
-{% for tag in tags\_sorted %}
-
-&nbsp; {% assign tag\_name = tag\[0] %}
-
-&nbsp; <h2 id="{{ tag\_name | slugify }}">{{ tag\_name }}</h2>
-
-&nbsp; <ul>
-
-&nbsp;   {% for post in site.tags\[tag\_name] %}
-
-&nbsp;     <li>
-
-&nbsp;       <a href="{{ post.url | relative\_url }}">{{ post.title }}</a>
-
-&nbsp;       — {{ post.date | date: "%Y-%m-%d" }}
-
-&nbsp;       {% if post.categories %} • {{ post.categories | join: ", " }}{% endif %}
-
-&nbsp;     </li>
-
-&nbsp;   {% endfor %}
-
-&nbsp; </ul>
-
-{% endfor %}
-

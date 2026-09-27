@@ -1,0 +1,6 @@
+{%- assign source = include.article.path | default: '' -%}
+{%- if include.article.section == "notes" -%}Notes{%- elsif include.article.topic -%}{{- include.article.topic -}}
+{%- elsif include.article.categories contains 'hardware' or source contains 'bitlocker' or source contains 'windows-boot-failure' -%}Hardware
+{%- elsif include.article.categories contains 'physics' -%}Physics
+{%- else -%}Software
+{%- endif -%}

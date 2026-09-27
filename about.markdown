@@ -1,18 +1,12 @@
 ---
 layout: page
-title: About
+title: A little about me.
+description: Hi, I’m Lynx, a physics student at UCSB.
 permalink: /about/
 ---
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+<div class="prose about-copy">
+<p>This is my personal notebook for physics, software, and hardware: a place to collect what I learn and share things that might help someone else.</p>
+<p>You’ll find lab guides, coding experiments, and records of problems I’ve worked through. I’m learning as I go.</p>
+<h2>Say hello.</h2>
+<p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</div>

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign next_article = page.previous %}
+{% for item in site.posts %}
+  {% if next_article.section == "notes" %}{% assign next_article = next_article.previous %}{% endif %}
+{% endfor %}
+{% if page.section == "notes" %}{% assign next_article = nil %}{% endif %}
+<div class="reading-stream">
+  <section class="reading-entry" data-url="{{ page.url | relative_url }}"{% if next_article %} data-next="{{ next_article.url | relative_url }}"{% endif %}>
+    <article class="reading">
+      <header class="post-heading">
+        {% if page.section == "notes" %}<a href="{{ '/notes/' | relative_url }}">← Notes</a>{% else %}<a href="{{ '/blog/' | relative_url }}">← Blog</a>{% endif %}
+        {% capture topic %}{% include topic.html article=page %}{% endcapture %}
+        <p class="post-meta">{{ topic | strip }}{% if page.date %} · <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>{% endif %}</p>
+        <h1>{{ page.title | escape }}</h1>
+      </header>
+      <div class="prose">{{ content }}</div>
+    </article>
+    <aside class="contents-panel" hidden>
+      <details open>
+        <summary>Contents</summary>
+        <nav aria-label="Article contents"><ol></ol></nav>
+      </details>
+    </aside>
+  </section>
+</div>
+<div class="reading-next">
+  {% if next_article %}<a class="next-article" href="{{ next_article.url | relative_url }}">Next article: {{ next_article.title | escape }} ↓</a>{% else %}{% if page.section == "notes" %}<a href="{{ '/notes/' | relative_url }}">All notes →</a>{% else %}<a href="{{ '/blog/' | relative_url }}">All articles →</a>{% endif %}{% endif %}
+  <p class="load-status" role="status"></p>
+</div>

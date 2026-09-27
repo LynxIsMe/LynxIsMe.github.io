@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="welcome">
+  <h1>Welcome Home!</h1>
+  <p>Hi, I’m Lynx, a physics student. Hope you find something helpful with this websites.</p>
+  <div class="release">
+    <p>Release: v 0.0.4 · September 26, 2026</p>
+    <ul>
+      <li>A simpler homepage with a white, ocean blue, and yellow design.</li>
+      <li>A cleaner navigation bar that stays visible while you scroll.</li>
+      <li>Browse articles through Blog and Tags, with the latest writing below.</li>
+      <li>Clickable contents beside each article, with a compact menu on phones.</li>
+      <li>Keep reading: the next older article loads as you scroll down.</li>
+      <li>A floating arrow to jump back to the top.</li>
+      <li>Improved layouts for phones, while keeping all original articles unchanged.</li>
+    </ul>
+  </div>
+</section>
+<section class="latest-section" aria-labelledby="latest-title">
+  <div class="section-heading"><h2 id="latest-title">Latest writing</h2><a href="{{ '/blog/' | relative_url }}">All articles →</a></div>
+  {% include article-list.html %}
+</section>

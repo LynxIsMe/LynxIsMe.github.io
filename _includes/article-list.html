@@ -1,0 +1,19 @@
+{% assign articles = site.posts | sort: "date" | reverse %}
+{% assign shown = 0 %}
+<div class="article-list">
+{% for article in articles %}{% if article.section == "notes" %}{% continue %}{% endif %}
+  {% capture topic %}{% include topic.html article=article %}{% endcapture %}
+  {% assign topic = topic | strip %}
+  {% if include.topic and include.topic != topic %}{% continue %}{% endif %}
+  {% if include.limit and shown >= include.limit %}{% break %}{% endif %}
+  {% assign shown = shown | plus: 1 %}
+  <article class="article-row">
+    <div class="article-date"><time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: "%b %d, %Y" }}</time><span>{{ topic }}</span></div>
+    <div><h3><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></h3>
+    {% if article.description %}<p>{{ article.description | escape }}</p>{% endif %}
+    </div>
+    <a class="article-arrow" href="{{ article.url | relative_url }}" aria-label="Read {{ article.title | escape }}">↗</a>
+  </article>
+{% endfor %}
+{% if shown == 0 %}<p class="empty-state">Nothing here yet. New writing will appear here as I add it.</p>{% endif %}
+</div>
